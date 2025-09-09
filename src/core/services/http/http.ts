@@ -9,15 +9,22 @@ export const xhr = new XMLHttpRequest();
 
 // Opens a new request with the given method and URL
 export const open = ({ method, endpoint, options }: Types.Http.RequestConfig) => {
-  const params = new URLSearchParams(options?.params).toString();
+  // params
+  const params = new URLSearchParams(
+    Object.fromEntries(Object.entries(options?.params ?? {}).map(([key, value]) => [key, String(value)]))
+  ).toString();
+
+  // url
   const url = new URL(`${BASE_URL}${endpoint}${params ? `?${params}` : ''}`);
+
+  // open
   return xhr.open(method, url);
 };
 
 // Sends the request to the server (with or without body)
 function send({ method, endpoint, options, withAuth }: Types.Http.RequestConfig) {
   const accessToken = localStorage.getItem(config.api.accessTokenKey) || '';
-  open({ method, endpoint });
+  open({ method, endpoint, options });
   xhr.setRequestHeader('Content-Type', 'application/json');
   if (withAuth) xhr.setRequestHeader('Authorization', `Bearer ${accessToken}`);
   if (options?.body) xhr.send(JSON.stringify(options.body));

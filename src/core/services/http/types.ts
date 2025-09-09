@@ -3,7 +3,7 @@ import { METHODS } from './constants';
 export declare namespace Http {
   interface BaseRequest {
     body?: any;
-    params?: Record<string, string>;
+    params?: Record<string, string | number | boolean>;
     timeout?: number;
   }
 
