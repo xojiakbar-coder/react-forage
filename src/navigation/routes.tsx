@@ -2,14 +2,22 @@ import type { RouteObject } from 'react-router-dom';
 
 // pages
 import Home from '@/pages/Home/Home';
+import Main from '@/layouts/Main/Main';
+import Dashboard from '@/pages/Dashboard/Dashboard';
 
 export const routes: RouteObject[] = [
   {
-    path: '/',
-    element: <Home />
-  },
-  {
-    path: '/documentation',
-    element: <h1>Documentation</h1>
+    element: <Main />,
+    children: [
+      {
+        path: '/home',
+        element: <Home />
+      },
+      {
+        index: true,
+        path: '/',
+        element: <Dashboard />
+      }
+    ]
   }
 ];

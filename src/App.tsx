@@ -1,4 +1,3 @@
-// style files
 import '@/assets/styles/main.scss';
 
 import { useMemo } from 'react';

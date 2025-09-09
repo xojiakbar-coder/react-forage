@@ -7,7 +7,7 @@ import styles from './Home.module.scss';
 const Home = () => {
   return (
     <div className={styles.container}>
-      <h1>React Forage</h1>
+      <h1 className={styles.title}>React Forage</h1>
 
       <div className={styles.logo_section}>
         <a href="https://vite.dev" target="_blank">

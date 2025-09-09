@@ -1,0 +1,17 @@
+@mixin general-theme {
+  --color-primary: #2563eb;
+  --color-secondary: #9333ea;
+  --color-accent: #f59e0b;
+
+  --color-info: #3b82f6;
+  --color-success: #16a34a;
+  --color-warning: #eab308;
+  --color-error: #dc2626;
+
+  --color-black: #000000;
+  --color-white: #ffffff;
+
+  --color-gray-100: #f3f4f6;
+  --color-gray-500: #6b7280;
+  --color-gray-900: #111827;
+}
