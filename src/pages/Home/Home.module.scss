@@ -3,49 +3,94 @@
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  gap: 30px;
+  gap: 32px;
   padding: 16px;
-  margin: 0 auto;
-  text-align: center;
+  position: relative;
   width: 100%;
-  height: calc(100dvh - 80px);
-  min-width: 320px;
+  top: -70px;
+  height: calc(100dvh - 70px);
+  min-width: 300px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background: radial-gradient(circle at 20% 20%, #61dafb1d 0%, transparent 40%),
+      radial-gradient(circle at 80% 30%, #38a2ff20 0%, transparent 40%),
+      linear-gradient(120deg, #0f0f12 0%, #0f0f12 100%);
+  }
+
+  @media (max-width: 480px) {
+    height: calc(100vh - 80px);
+  }
+}
+
+.title_section {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  gap: 24px;
+  width: 100%;
+  padding: 14px;
+  padding-top: 70px;
+  position: relative;
+  z-index: 20;
+  text-align: center;
 }
 
 .title {
-  color: #fff;
+  color: var(--color-white);
+  font-size: clamp(24px, 4vw, 40px);
+  font-weight: 700;
+}
+
+.subtitle {
+  width: 50%;
+  font-size: clamp(14px, 2.5vw, 18px);
+  line-height: 1.6;
+  text-wrap: balance;
+  color: var(--color-white);
+
+  @media (max-width: 768px) {
+    width: 80%;
+  }
+  @media (max-width: 480px) {
+    width: 100%;
+  }
 }
 
 .logo_section {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 20px;
+  gap: 16px;
   width: 100%;
-  padding: 16px;
+  flex-wrap: wrap;
   min-width: 320px;
-  height: max-content;
+  padding: 12px 8px;
 }
 
 .logo {
-  width: 120px;
-  height: 120px;
-  padding: 1.5em;
+  width: clamp(128px, 8vw, 192px);
+  height: clamp(128px, 8vw, 192px);
+  padding: 24px;
   will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cfff2);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-.logo.mantine:hover {
-  filter: drop-shadow(0 0 2em #38a2fffd);
+  transition: filter 300ms, transform 200ms;
+
+  &:focus,
+  &:hover {
+    outline-offset: 4px;
+    transform: scale(1.05);
+  }
 }
 
-.vite {
-  color: #646cff;
+.logo.react:hover {
+  filter: drop-shadow(0 0 12px #61dafbaa);
+}
+.logo.mantine:hover {
+  filter: drop-shadow(0 0 12px #38a2fffd);
 }
 
 .react {

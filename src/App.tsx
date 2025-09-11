@@ -1,4 +1,6 @@
+// import '@mantine/core/styles.css';
 import '@/assets/styles/main.scss';
+// import '@mantine/core/styles/global.css';
 
 import { useMemo } from 'react';
 

@@ -12,19 +12,20 @@
   @include general-theme;
 }
 
+::selection {
+  color: var(--color-white);
+  background-color: var(--color-gray-800);
+}
+
 body {
   margin: 0;
-  height: 100vh;
-  min-height: 100vh;
-  // background: #34373b;
+  height: max-content;
   font-family: 'Roboto Condensed', sans-serif;
-  background: linear-gradient(0deg, rgb(22, 24, 27) 0%, rgba(15, 15, 18, 1) 20%);
+  background: rgba(15, 15, 18, 1) !important;
+
+  // dark mode gradient:
+  // background: linear-gradient(0deg, rgb(22, 24, 27) 0%, rgba(15, 15, 18, 1) 20%) !important;
 
   // light mode gradient:
   // background: linear-gradient(0deg, rgb(209, 224, 255) 0%, rgba(255, 255, 255, 1) 20%);
-}
-
-h1 {
-  font-size: 44px;
-  line-height: 18px;
 }
