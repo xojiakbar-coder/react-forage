@@ -13,6 +13,7 @@ export const Button = ({
   full,
   htmlType,
   size = 'md',
+  effective = false,
   variant = 'filled',
   ...props
 }: Types.IBase.IProps) => (
@@ -20,8 +21,14 @@ export const Button = ({
     size={size}
     type={htmlType}
     variant={variant}
+    classNames={{
+      root: styles.btn_root,
+      inner: styles.btn_inner,
+      label: styles.btn_label,
+      section: styles.btn_section
+    }}
     data-fullwidth={full && full.toString()}
-    className={cx(styles.button, color && styles[color], className)}
+    className={cx(styles.button, color && styles[color], effective && styles.btn_root_effective, className)}
     {...props}
   >
     {children}

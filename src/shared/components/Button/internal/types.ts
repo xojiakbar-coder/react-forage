@@ -6,11 +6,20 @@ export declare namespace IBase {
     | 'primary'
     | 'secondary'
     | 'secondary-out'
-    | 'primary-outline'
-    | 'link';
+    | 'primary-out'
+    | 'link'
+    | 'info'
+    | 'success'
+    | 'warning'
+    | 'danger'
+    | 'info-out'
+    | 'success-out'
+    | 'warning-out'
+    | 'danger-out';
 
   interface IProps extends ButtonProps {
     className?: string;
+    effective?: boolean;
     variant?: ExtendedVariant;
     full?: boolean;
     htmlType?: 'button' | 'submit' | 'reset';

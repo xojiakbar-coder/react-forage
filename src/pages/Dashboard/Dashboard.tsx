@@ -1,6 +1,3 @@
-// import { Image } from '@mantine/core';
-// import img from '../../assets/images/img6.png';
-
 // styles
 import { Button } from '@/shared/components/Button';
 import styles from './Dashboard.module.scss';
@@ -9,16 +6,14 @@ const Dashboard = () => {
   return (
     <div className={styles.container}>
       <p>Dashboard</p>
-      <Button variant="filled">Button</Button>
-      <Button variant="outline">Button</Button>
-      <Button variant="primary-out">Button</Button>
-      <Button variant="secondary">Button</Button>
-      <Button variant="secondary-out">Button</Button>
-      <Button variant="white">Button</Button>
-      <Button variant="light">Button</Button>
-      <Button variant="subtle">Button</Button>
-      <Button variant="link">Button</Button>
-      <Button variant="text">Button</Button>
+      <Button variant="info">Button</Button>
+      <Button variant="success">Button</Button>
+      <Button variant="warning">Button</Button>
+      <Button variant="danger">Button</Button>
+      <Button variant="info-out">Button</Button>
+      <Button variant="success-out">Button</Button>
+      <Button variant="warning-out">Button</Button>
+      <Button variant="danger-out">Button</Button>
     </div>
   );
 };
