@@ -122,6 +122,10 @@
     &[data-variant='white'] {
       color: var(--color-black);
       background-color: var(--color-white);
+
+      &:hover {
+        background-color: var(--color-gray-200);
+      }
     }
 
     // link

@@ -10,12 +10,12 @@ export const routes: RouteObject[] = [
     element: <Main />,
     children: [
       {
-        path: '/home',
+        path: '/',
         element: <Home />
       },
       {
         index: true,
-        path: '/',
+        path: '/dashboard',
         element: <Dashboard />
       }
     ]

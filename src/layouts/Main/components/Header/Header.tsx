@@ -10,19 +10,19 @@ const Header = () => {
 
   return (
     <header className={cx(styles.header, scroll.y > 0 ? styles.header_darker : null)}>
-      <NavLink to="/home" className={styles.logo}>
+      <NavLink to="/" className={styles.logo}>
         REACT FORAGE
       </NavLink>
 
       <nav className={styles.nav}>
         <NavLink
-          to="/home"
+          to="/"
           className={({ isActive }) => (isActive ? `${styles.nav_link} ${styles.active}` : styles.nav_link)}
         >
           Home
         </NavLink>
         <NavLink
-          to="/"
+          to="/dashboard"
           className={({ isActive }) => (isActive ? `${styles.nav_link} ${styles.active}` : styles.nav_link)}
         >
           Dashboard
