@@ -1,4 +1,5 @@
 import { METHODS } from './constants';
+import { HttpPromise } from '@/core/types';
 
 export declare namespace Http {
   interface BaseRequest {
@@ -7,14 +8,17 @@ export declare namespace Http {
     timeout?: number;
   }
 
-  interface HttpClient {
-    get: (endpoint: string, options?: BaseRequest) => void;
-    post: (endpoint: string, options?: BaseRequest) => void;
-    put: (endpoint: string, options?: BaseRequest) => void;
-    patch: (endpoint: string, options?: BaseRequest) => void;
-    delete: (endpoint: string, options?: BaseRequest) => void;
+  interface RequestBody {
+    [key: string]: any;
   }
 
+  interface HttpClient {
+    get: <T = any>(endpoint: string, options?: BaseRequest) => HttpPromise<T>;
+    post: <T = any>(endpoint: string, options?: BaseRequest) => HttpPromise<T>;
+    put: <T = any>(endpoint: string, options?: BaseRequest) => HttpPromise<T>;
+    patch: <T = any>(endpoint: string, options?: BaseRequest) => HttpPromise<T>;
+    delete: <T = any>(endpoint: string, options?: BaseRequest) => HttpPromise<T>;
+  }
   type HttpMethod = METHODS.GET | METHODS.POST | METHODS.PUT | METHODS.PATCH | METHODS.DELETE;
 
   interface RequestConfig {

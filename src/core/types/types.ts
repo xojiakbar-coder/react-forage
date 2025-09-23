@@ -3,7 +3,7 @@
 // XMLHttpRequest types
 
 // HttpResponse, similar to AxiosResponse
-export interface HttpResponse<T = any> {
+export interface HttpResponse<T = any, D = any> {
   data: T;
   status: number;
   statusText: string;
@@ -13,4 +13,4 @@ export interface HttpResponse<T = any> {
 }
 
 // HttpPromise, similar to AxiosPromise
-export interface HttpPromise<T = any> extends Promise<HttpResponse<T>> {}
+export type HttpPromise<T = any> = Promise<HttpResponse<T>>;
