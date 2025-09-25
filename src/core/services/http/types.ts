@@ -1,6 +1,7 @@
 import { METHODS } from './constants';
 import { HttpPromise } from '@/core/types';
 
+// http/types.ts
 export declare namespace Http {
   interface BaseRequest {
     body?: any;
@@ -13,18 +14,19 @@ export declare namespace Http {
   }
 
   interface HttpClient {
-    get: <T = any>(endpoint: string, options?: BaseRequest) => HttpPromise<T>;
-    post: <T = any>(endpoint: string, options?: BaseRequest) => HttpPromise<T>;
-    put: <T = any>(endpoint: string, options?: BaseRequest) => HttpPromise<T>;
-    patch: <T = any>(endpoint: string, options?: BaseRequest) => HttpPromise<T>;
-    delete: <T = any>(endpoint: string, options?: BaseRequest) => HttpPromise<T>;
+    get: <T = any>(endpoint: string, options?: BaseRequest | RequestBody) => HttpPromise<T>;
+    post: <T = any>(endpoint: string, options?: BaseRequest | RequestBody) => HttpPromise<T>;
+    put: <T = any>(endpoint: string, options?: BaseRequest | RequestBody) => HttpPromise<T>;
+    patch: <T = any>(endpoint: string, options?: BaseRequest | RequestBody) => HttpPromise<T>;
+    delete: <T = any>(endpoint: string, options?: BaseRequest | RequestBody) => HttpPromise<T>;
   }
+
   type HttpMethod = METHODS.GET | METHODS.POST | METHODS.PUT | METHODS.PATCH | METHODS.DELETE;
 
   interface RequestConfig {
     endpoint: string;
     withAuth?: boolean;
     method: HttpMethod;
-    options?: BaseRequest;
+    options?: BaseRequest | RequestBody;
   }
 }

@@ -1,7 +1,7 @@
 import * as Types from './types';
 import { METHODS } from './constants';
 
-import config from '@/config';
+import configs from '@/config';
 import { HttpPromise, HttpResponse } from '@/core/types';
 
 export const BASE_URL = import.meta.env.VITE_API_BASE_URL;
@@ -21,20 +21,22 @@ export const open = ({ method, endpoint, options }: Types.Http.RequestConfig) =>
   return xhr.open(method, url);
 };
 
-function send<T>({ method, endpoint, options, withAuth }: Types.Http.RequestConfig): HttpPromise<T> {
+function send<T>(config: Types.Http.RequestConfig): HttpPromise<T> {
   return new Promise((resolve, reject) => {
     const xhr = new XMLHttpRequest();
-    const accessToken = localStorage.getItem(config.api.accessTokenKey) || '';
+    const accessToken = localStorage.getItem(configs.api.accessTokenKey) || '';
+    const { method, endpoint, options, withAuth } = config;
 
     // params
     const params = new URLSearchParams(
-      Object.fromEntries(Object.entries(options?.params ?? {}).map(([key, value]) => [key, String(value)]))
+      Object.fromEntries(
+        Object.entries((options as Types.Http.BaseRequest)?.params ?? {}).map(([key, value]) => [key, String(value)])
+      )
     ).toString();
 
     const url = new URL(`${BASE_URL}${endpoint}${params ? `?${params}` : ''}`);
 
     xhr.open(method, url);
-
     xhr.setRequestHeader('Content-Type', 'application/json');
     if (withAuth) xhr.setRequestHeader('Authorization', `Bearer ${accessToken}`);
 
@@ -52,8 +54,9 @@ function send<T>({ method, endpoint, options, withAuth }: Types.Http.RequestConf
 
     xhr.onerror = () => reject(new Error('Network error'));
 
-    if (options?.body) {
-      xhr.send(JSON.stringify(options.body));
+    // body bor yoki yo‘q
+    if ((options as Types.Http.BaseRequest)?.body || (options && !(options as Types.Http.BaseRequest).params)) {
+      xhr.send(JSON.stringify((options as Types.Http.BaseRequest).body ?? options));
     } else {
       xhr.send();
     }

@@ -10,3 +10,11 @@ export const Todo = (src: Partial<Types.IEntity.Todo>): Types.IEntity.Todo => ({
 });
 
 export const Todos = (src: Types.IQuery.Todos): Types.IQuery.Todos => src.map(Todo);
+
+export const RecentRide = (src?: any): any => ({
+  id: get(src, 'id', 0),
+  commissionPaymentScreenshot: get(src, 'commission_payment_screenshot', null),
+  isCompleted: get(src, 'is_completed', false),
+  createdAt: get(src, 'created_at', ''),
+  updatedAt: get(src, 'updated_at', '')
+});

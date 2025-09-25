@@ -1,11 +1,11 @@
-// import '@mantine/core/styles.css';
+import '@mantine/core/styles.css';
 import '@/assets/styles/main.scss';
-// import '@mantine/core/styles/global.css';
+import '@mantine/core/styles/global.css';
 
 import { useMemo } from 'react';
 
 // providers & routers
-import { routes } from './navigation/routes';
+import { routes } from './routes/routes';
 import { MantineProvider } from '@mantine/core';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 

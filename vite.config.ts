@@ -5,7 +5,10 @@ import { visualizer } from 'rollup-plugin-visualizer';
 
 // https://vite.dev/config/
 export default defineConfig({
-  server: { port: 4004 },
+  server: {
+    // port: 4004,
+    port: 3001
+  },
   plugins: [react(), visualizer()],
   resolve: {
     alias: {
